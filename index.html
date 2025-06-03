@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mult Saúde Fernandópolis - Saúde Popular com Qualidade</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #0066cc;
+            --secondary: #00a859;
+            --accent: #ff6b00;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), #004a99);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-left: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .slogan {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            background-color: #e05a00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            background-color: var(--primary);
+            color: white;
+            font-size: 2.5rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .feature-content {
+            padding: 1.5rem;
+        }
+        
+        .feature-content h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .price-highlight {
+            font-size: 1.8rem;
+            color: var(--accent);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        /* Plans Section */
+        .plans {
+            padding: 5rem 2rem;
+            background-color: #e8f4ff;
+        }
+        
+        .plans-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .plan-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .plan-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .plan-header {
+            background: linear-gradient(135deg, var(--primary), #004a99);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .plan-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: var(--accent);
+        }
+        
+        .plan-body {
+            padding: 1.5rem;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .plan-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .plan-features li i {
+            color: var(--secondary);
+            margin-right: 0.5rem;
+        }
+        
+        .highlight-plan {
+            transform: scale(1.05);
+            border: 3px solid var(--accent);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .highlight-plan .plan-header {
+            background: linear-gradient(135deg, var(--secondary), #008a46);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary), #004a99);
+            color: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            background-color: var(--accent);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        .submit-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #e05a00;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+        }
+        
+        .copyright {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #444;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .slogan {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .highlight-plan {
+                transform: scale(1);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 1rem 0;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .slogan {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat logo-icon"></i>
+                <h1>Mult Saúde Fernandópolis</h1>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#planos">Planos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Saúde de Qualidade a Preço Acessível</h1>
+            <div class="slogan">Da minha família para a sua</div>
+            <p>Consultas a partir de R$50,00 para associados do Clube Mult</p>
+            <p>Descontos em exames, procedimentos e farmácias em toda rede nacional</p>
+            <a href="https://wa.me/5517996135859" class="cta-button">
+                <i class="fab fa-whatsapp"></i> Fale Conosco pelo WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="servicos">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Consultas Médicas</h3>
+                    <p>Consultas com profissionais qualificados a preços populares:</p>
+                    <div class="price-highlight">A partir de R$50,00</div>
+                    <p>Clínico geral, pediatria, ginecologia e diversas especialidades</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Clube Mult</h3>
+                    <p>Clube de benefícios com descontos em:</p>
+                    <ul>
+                        <li>Consultas médicas</li>
+                        <li>Exames laboratoriais e de imagem</li>
+                        <li>Medicamentos</li>
+                        <li>Procedimentos estéticos</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-stethoscope"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Check-up Anual</h3>
+                    <p>Pacote completo de prevenção e diagnóstico:</p>
+                    <ul>
+                        <li>Consulta com clínico geral</li>
+                        <li>Ultrassom abdominal</li>
+                        <li>Eletrocardiograma</li>
+                        <li>Exames laboratoriais</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans" id="planos">
+        <h2 class="section-title">Nossos Planos</h2>
+        <div class="plans-container">
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h3>Plano Essencial</h3>
+                    <div class="plan-price">R$33,00</div>
+                </div>
+                <div class="plan-body">
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> Assistência funeral de até R$5.000,00</li>
+                        <li><i class="fas fa-check-circle"></i> Clube Mult completo</li>
+                        <li><i class="fas fa-check-circle"></i> Check-up médico anual</li>
+                        <li><i class="fas fa-check-circle"></i> Seguro de morte acidental (R$3.000,00)</li>
+                        <li><i class="fas fa-check-circle"></i> Carência: 90 dias</li>
+                    </ul>
+                    <a href="https://wa.me/5517996135859" class="cta-button">Contratar Agora</a>
+                </div>
+            </div>
+            
+            <div class="plan-card highlight-plan">
+                <div class="plan-header">
+                    <h3>Plano Premium Familiar</h3>
+                    <div class="plan-price">R$56,50</div>
+                </div>
+                <div class="plan-body">
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> Clube Mult completo</li>
+                        <li><i class="fas fa-check-circle"></i> Assistência funeral familiar (até R$5.000,00)</li>
+                        <li><i class="fas fa-check-circle"></i> Seguro morte qualquer causa (R$10.000,00)</li>
+                        <li><i class="fas fa-check-circle"></i> Cobertura para toda a família</li>
+                        <li><i class="fas fa-check-circle"></i> Carência: 90 dias</li>
+                    </ul>
+                    <a href="https://wa.me/5517996135859" class="cta-button">Contratar Agora</a>
+                </div>
+            </div>
+            
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h3>Telemedicina</h3>
+                    <div class="plan-price">R$65,00</div>
+                </div>
+                <div class="plan-body">
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> Consultas ilimitadas por videochamada</li>
+                        <li><i class="fas fa-check-circle"></i> 12 especialidades médicas</li>
+                        <li><i class="fas fa-check-circle"></i> Telepsicologia (2 sessões/mês)</li>
+                        <li><i class="fas fa-check-circle"></i> Sem limite de idade</li>
+                        <li><i class="fas fa-check-circle"></i> Carência: 7 dias</li>
+                    </ul>
+                    <a href="https://wa.me/5517996135859" class="cta-button">Contratar Agora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contato">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Entre em Contato</h2>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h4>Endereço</h4>
+                        <p>Av. Amadeu Bizelli, 1315 - Centro, Fernandópolis - SP, 15600-019</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <h4>Telefone</h4>
+                        <p>(17) 99613-5859</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h4>WhatsApp</h4>
+                        <p>(17) 99613-5859</p>
+                    </div>
+                </div>
+                
+                <a href="https://wa.me/5517996135859" class="cta-button">
+                    <i class="fab fa-whatsapp"></i> Fale Conosco pelo WhatsApp
+                </a>
+            </div>
+            
+            <div class="contact-form">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Envie sua mensagem</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Mult Saúde</h3>
+                <p>Saúde de qualidade a preços acessíveis para toda a família de Fernandópolis e região.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#planos">Planos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Planos</h3>
+                <ul>
+                    <li><a href="#planos">Plano Premium Familiar</a></li>
+                    <li><a href="#planos">Plano Essencial</a></li>
+                    <li><a href="#planos">Telemedicina</a></li>
+                    <li><a href="#planos">Telepsicologia</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Mult Saúde Fernandópolis. Todos os direitos reservados.</p>
+      
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('.contact-form form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
