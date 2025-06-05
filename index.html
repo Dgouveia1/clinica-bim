@@ -14,23 +14,24 @@
         }
         
         :root {
-            --primary: #0066cc;
-            --secondary: #00a859;
-            --accent: #ff6b00;
-            --light: #f8f9fa;
-            --dark: #343a40;
+            --primary: #FF6B00;
+            --secondary: #FF8C42;
+            --accent: #E05A00;
+            --light: #FFF8F0;
+            --dark: #3E3E3E;
             --gray: #6c757d;
+            --beige: #F5E6D9;
         }
         
         body {
-            background-color: #f0f8ff;
+            background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
         }
         
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary), #004a99);
+            background: linear-gradient(135deg, var(--primary), #D45F00);
             color: white;
             padding: 1rem 0;
             position: sticky;
@@ -51,16 +52,13 @@
         .logo {
             display: flex;
             align-items: center;
+            gap: 15px;
         }
         
-        .logo h1 {
-            font-size: 1.8rem;
-            margin-left: 10px;
-        }
-        
-        .logo-icon {
-            font-size: 2.5rem;
-            color: var(--accent);
+        .logo img {
+            height: 65px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         nav ul {
@@ -82,7 +80,7 @@
         }
         
         nav ul li a:hover {
-            color: var(--accent);
+            color: var(--beige);
         }
         
         nav ul li a::after {
@@ -92,7 +90,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--accent);
+            background-color: var(--beige);
             transition: width 0.3s;
         }
         
@@ -137,7 +135,7 @@
         .slogan {
             font-size: 2.2rem;
             margin-bottom: 2rem;
-            color: var(--accent);
+            color: var(--secondary);
             font-weight: bold;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
@@ -150,7 +148,7 @@
         
         .cta-button {
             display: inline-block;
-            background-color: var(--accent);
+            background-color: var(--primary);
             color: white;
             padding: 1rem 2.5rem;
             border-radius: 50px;
@@ -163,7 +161,7 @@
         }
         
         .cta-button:hover {
-            background-color: #e05a00;
+            background-color: var(--accent);
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
@@ -242,7 +240,7 @@
         /* Plans Section */
         .plans {
             padding: 5rem 2rem;
-            background-color: #e8f4ff;
+            background-color: var(--beige);
         }
         
         .plans-container {
@@ -267,7 +265,7 @@
         }
         
         .plan-header {
-            background: linear-gradient(135deg, var(--primary), #004a99);
+            background: linear-gradient(135deg, var(--primary), #D45F00);
             color: white;
             padding: 1.5rem;
             text-align: center;
@@ -282,7 +280,7 @@
             font-size: 2.5rem;
             font-weight: bold;
             margin: 1rem 0;
-            color: var(--accent);
+            color: var(--beige);
         }
         
         .plan-body {
@@ -313,13 +311,13 @@
         }
         
         .highlight-plan .plan-header {
-            background: linear-gradient(135deg, var(--secondary), #008a46);
+            background: linear-gradient(135deg, var(--accent), #C25000);
         }
         
         /* Contact Section */
         .contact {
             padding: 5rem 2rem;
-            background: linear-gradient(135deg, var(--primary), #004a99);
+            background: linear-gradient(135deg, var(--primary), #D45F00);
             color: white;
         }
         
@@ -349,7 +347,8 @@
         }
         
         .contact-icon {
-            background-color: var(--accent);
+            background-color: var(--beige);
+            color: var(--primary);
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -392,7 +391,7 @@
         }
         
         .submit-btn {
-            background-color: var(--accent);
+            background-color: var(--primary);
             color: white;
             border: none;
             padding: 1rem 2rem;
@@ -405,7 +404,7 @@
         }
         
         .submit-btn:hover {
-            background-color: #e05a00;
+            background-color: var(--accent);
         }
         
         /* Footer */
@@ -428,7 +427,7 @@
         .footer-column h3 {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
-            color: var(--accent);
+            color: var(--secondary);
         }
         
         .footer-column ul {
@@ -446,7 +445,7 @@
         }
         
         .footer-column ul li a:hover {
-            color: var(--accent);
+            color: var(--secondary);
         }
         
         .social-links {
@@ -469,13 +468,26 @@
         }
         
         .social-links a:hover {
-            background-color: var(--accent);
+            background-color: var(--primary);
         }
         
         .copyright {
             margin-top: 3rem;
             padding-top: 1.5rem;
             border-top: 1px solid #444;
+        }
+        
+        /* Logo Banner */
+        .logo-banner {
+            background-color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo-banner img {
+            max-height: 80px;
+            margin: 0 auto;
         }
         
         /* Responsive Design */
@@ -510,6 +522,10 @@
             .highlight-plan {
                 transform: scale(1);
             }
+            
+            .logo {
+                justify-content: center;
+            }
         }
         
         @media (max-width: 480px) {
@@ -542,6 +558,10 @@
             .slogan {
                 font-size: 1.5rem;
             }
+            
+            .logo img {
+                height: 50px;
+            }
         }
     </style>
 </head>
@@ -550,8 +570,7 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <i class="fas fa-heartbeat logo-icon"></i>
-                <h1>Mult Saúde Fernandópolis</h1>
+                <img src="https://i.ibb.co/35m616js/Retrato-instagram-fevereiro-laranja-profissional-laranja-8.png" alt="Mult Saúde Fernandópolis">
             </div>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -579,6 +598,11 @@
             </a>
         </div>
     </section>
+
+    <!-- Logo Banner -->
+    <div class="logo-banner">
+        <img src="https://i.ibb.co/35m616js/Retrato-instagram-fevereiro-laranja-profissional-laranja-8.png" alt="Mult Saúde Fernandópolis">
+    </div>
 
     <!-- Features Section -->
     <section class="features" id="servicos">
@@ -760,7 +784,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-column">
-                <h3>Mult Saúde</h3>
+                <img src="https://i.ibb.co/35m616js/Retrato-instagram-fevereiro-laranja-profissional-laranja-8.png" alt="Mult Saúde Fernandópolis" style="height: 60px; margin-bottom: 15px; border-radius: 8px;">
                 <p>Saúde de qualidade a preços acessíveis para toda a família de Fernandópolis e região.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -788,11 +812,19 @@
                     <li><a href="#planos">Telepsicologia</a></li>
                 </ul>
             </div>
+            
+            <div class="footer-column">
+                <h3>Horário de Atendimento</h3>
+                <ul>
+                    <li>Segunda a Sexta: 8h às 18h</li>
+                    <li>Sábado: 8h às 12h</li>
+                    <li>Domingo: Fechado</li>
+                </ul>
+            </div>
         </div>
         
         <div class="copyright">
             <p>&copy; 2025 Mult Saúde Fernandópolis. Todos os direitos reservados.</p>
-      
         </div>
     </footer>
 
